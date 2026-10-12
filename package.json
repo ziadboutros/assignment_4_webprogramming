@@ -1,0 +1,8 @@
+{
+  "name": "weather-dashboard-assignment-4",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A responsive city weather dashboard using the Open-Meteo public APIs",
+  "scripts": { "test": "node tests/browser-checks.cjs" },
+  "devDependencies": { "playwright": "1.62.1" }
+}
