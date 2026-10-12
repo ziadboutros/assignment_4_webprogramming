@@ -1,0 +1,9 @@
+# Keep credentials and local environment files out of Git.
+.env
+.env.*
+!.env.example
+config.local.js
+node_modules/
+.DS_Store
+Thumbs.db
+__pycache__/

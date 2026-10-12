@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search a city to see its current weather, temperature, humidity, wind speed and feels-like temperature.">
+  <meta name="theme-color" content="#eef4f5">
+  <title>Weather Dashboard</title>
+  <link rel="icon" href="assets/icons/clear.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Weather Dashboard home">
+        <img src="assets/icons/clear.svg" alt="" width="36" height="36">
+        <span>weather<span class="brand-dot">.</span></span>
+      </a>
+      <span class="header-label">YOUR DAILY OUTLOOK</span>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">A LOOK OUTSIDE</p>
+        <h1 id="page-title">Every city. <span>A different sky.</span></h1>
+        <p class="intro-copy">Find the current weather wherever your day takes you.</p>
+      </section>
+
+      <section class="search-section" aria-label="City search">
+        <form id="search-form" novalidate>
+          <label for="city-input">Which city are you looking for?</label>
+          <div class="search-row">
+            <div class="input-wrap">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4.5 4.5"></path></svg>
+              <input id="city-input" name="city" type="text" placeholder="Enter a city, e.g. Beirut" autocomplete="off" maxlength="80" aria-describedby="search-hint" required>
+            </div>
+            <button id="search-button" type="submit">Check weather <span aria-hidden="true">↗</span></button>
+          </div>
+          <p id="search-hint" class="hint">Search by city name. For shared names, the closest name match is shown.</p>
+        </form>
+      </section>
+
+      <section id="results" class="results" aria-label="Weather results" aria-busy="false">
+        <div id="loading" class="notice loading" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Looking up the city and fetching its weather…</span>
+        </div>
+        <div id="error" class="notice error" role="alert" hidden></div>
+        <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+
+        <div id="empty-state" class="empty-state">
+          <img src="assets/icons/partly-cloudy.svg" alt="" width="100" height="100">
+          <h2>Your weather starts here.</h2>
+          <p>Enter a city above to see what the sky has in store.</p>
+        </div>
+
+        <article id="weather-card" aria-labelledby="city-name" hidden>
+          <div class="weather-main">
+            <div class="weather-heading">
+              <div><p class="eyebrow">CURRENT WEATHER</p><h2 id="city-name"></h2><p id="location" class="location"></p></div>
+              <span class="live-badge"><span aria-hidden="true"></span>Latest conditions</span>
+            </div>
+            <div class="conditions-row">
+              <div><p class="temperature"><span id="temperature"></span><span class="degree">°C</span></p><p id="description" class="description"></p></div>
+              <img id="weather-icon" src="assets/icons/clear.svg" alt="" width="180" height="180">
+            </div>
+            <p id="updated" class="updated"></p>
+          </div>
+          <dl class="metrics">
+            <div class="metric"><dt><span aria-hidden="true">◉</span> Feels like</dt><dd><span id="feels-like"></span><span class="metric-unit"> °C</span></dd><p>How the air feels</p></div>
+            <div class="metric"><dt><span aria-hidden="true">◈</span> Humidity</dt><dd><span id="humidity"></span><span class="metric-unit"> %</span></dd><p>Moisture in the air</p></div>
+            <div class="metric"><dt><span aria-hidden="true">≋</span> Wind speed</dt><dd><span id="wind"></span><span class="metric-unit"> km/h</span></dd><p>Wind at 10 metres</p></div>
+          </dl>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Weather, without the guesswork.</p>
+      <p>Data by <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> · Locations by <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a></p>
+      <p class="source-note">Current conditions are weather-model estimates. An internet connection is required.</p>
+    </footer>
+  </div>
+</body>
+</html>
